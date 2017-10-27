@@ -1,4 +1,4 @@
-FROM node:8.4-alpine
+FROM node:8.8-alpine
 MAINTAINER Petr Bugyík
 
 RUN apk add --no-cache \
@@ -8,7 +8,7 @@ RUN apk add --no-cache \
         python \
         git \
     && \
-    npm install dredd@"~4.4" && \
+    npm install dredd@"~4.6" && \
     apk del \
         make \
         gcc \
