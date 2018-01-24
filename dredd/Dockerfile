@@ -1,7 +1,7 @@
 FROM node:9.4-alpine
 MAINTAINER Petr Bugyík
 
-RUN apk add --no-cache \
+RUN apk add --no-cache --virtual .build-dependencies \
         make \
         gcc \
         g++ \
@@ -9,13 +9,7 @@ RUN apk add --no-cache \
         git \
     && \
     npm install dredd@"~4.9" && \
-    apk del \
-        make \
-        gcc \
-        g++ \
-        python \
-        git \
-    && \
+    apk del .build-dependencies && \
     npm cache --force clean && \
     rm -rf node_modules/faker && \
     find node_modules \
