@@ -1,4 +1,4 @@
-FROM node:9.11-alpine
+FROM node:10.9-alpine
 MAINTAINER Petr Bugyík
 
 RUN apk add --no-cache --virtual .build-dependencies \
@@ -8,7 +8,7 @@ RUN apk add --no-cache --virtual .build-dependencies \
         python \
         git \
     && \
-    npm install dredd@"~5.1" && \
+    npm install dredd@5.1.11 && \
     apk del .build-dependencies && \
     npm cache --force clean && \
     rm -rf node_modules/faker && \
